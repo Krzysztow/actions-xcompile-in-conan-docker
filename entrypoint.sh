@@ -2,6 +2,9 @@
 
 set -e
 set -u
+set -x
+
+echo "Arguments $@"
 
 BUILD_COMPILER_ARCH=$1
 

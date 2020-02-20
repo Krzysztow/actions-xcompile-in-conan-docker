@@ -1,0 +1,14 @@
+# action.yml
+name: 'Building server'
+description: 'Builds simple HTTP server for a given arch using conan-io docker image for cross-compilation'
+inputs:
+  target-duet:
+    description: 'Target compiler-architecture matching conan-io image tags'
+    required: true
+    default: 'gcc7-armv7'
+runs:
+  using: 'docker'
+  image: 'docker://conanio/'${{ inputs.target-arch }}
+  args:
+    - ./entrypoint.sh
+    - ${{ inputs.target-arch }}
